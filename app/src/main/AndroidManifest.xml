@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yds.bluetooth">
+
+    <instrumentation
+        android:name="androidx.test.runner.AndroidJUnitRunner"
+        android:targetPackage="com.yds.bluetooth" />
+    <!--想要用蓝牙进行通信则要申明bluetooth权限-->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <!--bluetooth_admin用来操作蓝牙，官方建议除非是用户请求修改蓝牙设置的-->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <!--扫描蓝牙后会触发广播，如果触发广播需要添加下面权限-->
+    <uses-permission android:name="android.permission.Access_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".source.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
